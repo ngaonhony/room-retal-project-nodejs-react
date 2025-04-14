@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const API_URL = `${process.env.REACT_APP_API_URL || 'http://localhost:3000'}/api/categories`;
+const API_URL = `${process.env.REACT_APP_API_URL}api/categories`;
+if (!process.env.REACT_APP_API_URL) {
+    console.error('REACT_APP_API_URL is not defined. Please check your .env file.');
+}
 
 // Hàm lấy tất cả danh mục
 export const getCategories = async () => {
