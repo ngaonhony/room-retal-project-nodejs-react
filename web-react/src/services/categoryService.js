@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/categories'; // Thay đổi đường dẫn nếu cần
+const API_URL = `${import.meta.env.VITE_API_URL}/api/categories`;
 
 // Hàm lấy tất cả danh mục
 export const getCategories = async () => {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Định nghĩa API endpoint với cổng
-const API_URL = 'http://localhost:3000/api/auth'; // Cập nhật URL với cổng
+const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
 
 
 export const login = async (account, password) => {
