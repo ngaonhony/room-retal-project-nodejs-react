@@ -8,7 +8,8 @@ const {
 } = require("../middlewares/auth.middleware");
 const multer = require("multer");
 
-const upload = multer({ dest: "uploads/" });
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 router.get("/checkToken", authenticateToken, (req, res) => {
   res.status(200).json({ message: "Token hợp lệ" });
 });

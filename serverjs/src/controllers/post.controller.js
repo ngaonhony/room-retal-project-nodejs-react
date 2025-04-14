@@ -9,9 +9,8 @@ exports.createPost = async (req, res) => {
     const imageUrls = [];
     if (req.files && req.files.length > 0) {
       for (const file of req.files) {
-        const result = await uploadImage(file.path);
+        const result = await uploadImage(file.buffer);
         imageUrls.push(result.secure_url);
-        fs.unlinkSync(file.path);
       }
     }
     if (!req.userId) {
@@ -84,9 +83,8 @@ exports.updatePost = async (req, res) => {
       }
       imageUrls = [];
       for (const file of req.files) {
-        const result = await uploadImage(file.path);
+        const result = await uploadImage(file.buffer);
         imageUrls.push(result.secure_url);
-        fs.unlinkSync(file.path);
       }
     }
     if (req.body.title) post.title = req.body.title;
