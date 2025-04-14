@@ -1,7 +1,14 @@
 import axios from 'axios';
 
-// Định nghĩa API endpoint với cổng
-const API_URL = `${import.meta.env.VITE_API_URL}/api/auth`;
+// Define API endpoint with port and fallback URL
+const API_URL = process.env.REACT_APP_API_URL
+  ? `${process.env.REACT_APP_API_URL}/api/auth`
+  : 'http://localhost:3000/api/auth';
+
+// Validate API URL
+if (!API_URL) {
+  console.error('API URL is not properly configured. Using fallback URL.');
+}
 
 
 export const login = async (account, password) => {
