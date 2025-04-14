@@ -7,9 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "start": "nodemon src/server.js",
-    "build-src": "babel src -d build --copy-files",
-    "build": "nodemon build/server.js"
+    "start": "node src/server.js",
+    "build": "babel src -d build --copy-files"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
